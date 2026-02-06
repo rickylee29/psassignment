@@ -7,9 +7,10 @@ espressoCore = "3.5.1"
 lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 kotlin = "2.0.21"
-composeBom = "2024.09.00"
+ksp = "2.0.21-1.0.21"
+composeBom = "2024.06.00"
 javaxInject = "1"
-hilt = "2.48"
+hilt = "2.55"
 coreKtxVersion = "1.17.0"
 
 [libraries]
@@ -38,4 +39,4 @@ kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "ko
 hiltAndroid = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-kapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-
+kotlin-ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }

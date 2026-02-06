@@ -2,6 +2,7 @@ package com.example.psassignment.di
 
 import android.content.Context
 import com.example.psassignment.data.repository.AssetDataRepository
+import com.example.psassignment.domain.algorithm.GreedyAlgorithm
 import com.example.psassignment.domain.algorithm.HungarianAlgorithm
 import com.example.psassignment.domain.algorithm.RoutingAlgorithm
 import com.example.psassignment.domain.repository.DataRepository
@@ -24,8 +25,10 @@ object AppModule {
     }
 
     @Provides
+    @Singleton
     fun provideRoutingAlgorithm(): RoutingAlgorithm {
-        return HungarianAlgorithm()
+        return GreedyAlgorithm()            // The fast/approx answer
+//        return HungarianAlgorithm()       // More complicated, but the best answer
     }
 
     @Provides

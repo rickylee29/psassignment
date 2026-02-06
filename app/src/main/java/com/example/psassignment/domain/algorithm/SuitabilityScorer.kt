@@ -16,6 +16,20 @@ class SuitabilityScorer @Inject constructor() {
 
         var baseScore = 0.0
 
+        // determine odd or even number
+        if (streetName.length % 2 == 0) {
+            // Rule: Even length -> Vowels * 1.5
+            baseScore = countVowels(driverName) * 1.5
+        } else {
+            // Rule: Odd length -> Consonants * 1
+            baseScore = countConsonants(driverName).toDouble()
+        }
+
+        // Rule: Common factors -> Increase by 50%
+        if (hasCommonFactor(streetName.length, driverName.length)) {
+            baseScore *= 1.5
+        }
+
         return baseScore
     }
 

@@ -6,7 +6,14 @@ import kotlin.math.min
 
 /**
  * Implementation of the Hungarian Algorithm.
- * Solves in O(n^3) time.
+ *
+ * pros
+ * best solution
+ * **maximize the Total Suitability Score.**
+ * cons
+ * more complicated to implement
+ * slower than greedy O(N^3)
+ *
  */
 class HungarianAlgorithm @Inject constructor() : RoutingAlgorithm {
 
