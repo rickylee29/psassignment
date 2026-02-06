@@ -34,6 +34,7 @@ A native Android application that calculates the optimal assignment of shipments
        * good enough solution
        * simpler to implement
        * faster than hungarian O(N^2): scan and sort
+       * it's a better solution for big data
     - cons
        * ** Not best solution ** because the total of other combination could be higher.
     - user can easily swtich to a better algorithm later (with RoutingAlgorithm Interface)
