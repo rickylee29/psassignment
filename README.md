@@ -37,6 +37,11 @@ A native Android application that calculates the optimal assignment of shipments
     - cons
        * ** Not best solution ** because the total of other combination could be higher.
     - user can easily swtich to a better algorithm later (with RoutingAlgorithm Interface)
+   
+- Branching
+  # since it's only for one developer(me), I'm using a simple branching strategy to separate development and submission build
+  - main            # for final submission - Merge when when we is workable solution
+    - develop       # for development - Merge all development PRs
  
 - How to Run
 1. Clone the repository.
