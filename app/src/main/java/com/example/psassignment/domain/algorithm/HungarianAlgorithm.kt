@@ -8,14 +8,14 @@ import kotlin.math.min
  * Implementation of the Hungarian Algorithm.
  * Solves in O(n^3) time.
  */
-class HungarianAlgorithm @Inject constructor() {
+class HungarianAlgorithm @Inject constructor() : RoutingAlgorithm {
 
     /**
      * Computes the maximum weight matching for a square matrix.
      * @param costMatrix A 2D array where costMatrix[i][j] is the score of worker i performing task j.
      * @return An IntArray where index is the row (Driver) and value is the column (Shipment).
      */
-    fun computeAssignments(costMatrix: Array<DoubleArray>): IntArray {
+    override fun computeAssignments(costMatrix: Array<DoubleArray>): IntArray {
         val rows = costMatrix.size
         val cols = costMatrix[0].size
 

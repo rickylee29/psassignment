@@ -1,6 +1,6 @@
 package com.example.psassignment.domain.usecase
 
-import com.example.psassignment.domain.algorithm.HungarianAlgorithm
+import com.example.psassignment.domain.algorithm.RoutingAlgorithm
 import com.example.psassignment.domain.algorithm.SuitabilityScorer
 import com.example.psassignment.domain.model.Assignment
 import com.example.psassignment.domain.repository.DataRepository
@@ -11,7 +11,7 @@ import javax.inject.Inject
 class CalculateOptimizedAssignmentsUseCase @Inject constructor(
     private val repository: DataRepository,
     private val scorer: SuitabilityScorer,
-    private val algorithm: HungarianAlgorithm
+    private val algorithm: RoutingAlgorithm
 ) {
 
     // Run on Default dispatcher (CPU intensive)
