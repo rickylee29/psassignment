@@ -27,17 +27,20 @@ A native Android application that calculates the optimal assignment of shipments
   - Architecture: MVVM + Clean Architecture
   - Dependency Injection: Hilt
  
-## Algorithm
+## Algorithm (Assuming it's a NxN Matrix)
   - Greedy Algorithm
     - Instead of just looking at the first driver and picking their best shipment, this algorithm looks at the entire grid of possibilities to find the single highest Suitability Score available anywhere, locks it in, and then repeats.
     - pros
        * good enough solution
        * simpler to implement
-       * faster than hungarian O(N^2): scan and sort
+       * faster than hungarian O(N^2) (or $O(N^2 \log N)$ depending on sorting)
        * it's a better solution for big data
     - cons
        * ** Not best solution ** because the total of other combination could be higher.
-    - user can easily swtich to a better algorithm later (with RoutingAlgorithm Interface)
+       * The result may not be the most accurate
+
+    ** Greedy Algorithm may be a better choice for large data, if we could sacrifice some accuracy
+    ** we could easily swtich to a other algorithm later (with RoutingAlgorithm Interface)
    
 ## Branching
   - since it's only for one developer(me), I'm using a simple branching strategy to separate development and submission build
