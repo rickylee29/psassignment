@@ -46,9 +46,9 @@ Two algorithms were implemented to compare results:
        * more complicated to implement
        * slower than greedy
 
-  - Hungarian Algorithm is the best solution for this assignment.
-  - The Greedy algorithm is a viable choice for large-scale data where performance is prioritized over absolute accuracy.
-  - we could easily swtich to a other algorithm later (with RoutingAlgorithm Interface).
+- Hungarian Algorithm is the best solution for this assignment.
+- The Greedy algorithm is a viable choice for large-scale data where performance is prioritized over absolute accuracy.
+- we could easily swtich to a other algorithm later (with RoutingAlgorithm Interface).
 
 ### 3. Data Handling
 * **`AssetDataRepository`**: Handles reading the local `data.json` file.
