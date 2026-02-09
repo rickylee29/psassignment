@@ -86,7 +86,7 @@ Given the complexity of the **Hungarian Algorithm O(N^3)**, I implemented a rigo
   * **Result:** Typical execution time is **< 30ms**, confirming it is safe for datasets up to $N=100$ on the client side.
 
 ## Project Structure
-  app/
+  com.example.psassignment/
   - domain/                  # Pure Kotlin
     - algorithm/             # the more math and algorithm
     - model/                 # Entitles
