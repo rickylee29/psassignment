@@ -67,7 +67,7 @@ Two algorithms were implemented to compare results:
     * **Case Sensitivity:** All comparisons are case-insensitive.
    
 ## Verification & Testing Strategy
-Given the complexity of the **Hungarian Algorithm ($O(N^3)$)**, I implemented a rigorous unit testing suite to ensure correctness, stability, and performance on mobile devices.
+Given the complexity of the **Hungarian Algorithm O(N^3)**, I implemented a rigorous unit testing suite to ensure correctness, stability, and performance on mobile devices.
 
 ### 1. Correctness Test (`3x3 Max Score`)
   * **Goal:** Verify that the algorithm correctly **maximizes the total Suitability Score (SS)** rather than minimizing cost.
