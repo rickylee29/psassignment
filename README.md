@@ -35,7 +35,7 @@ Two algorithms were implemented to compare results:
        * ** Not best solution ** because the total of other combination could be better.
        * The result may not be the most optimal
 
-  * **Hungarian Algorithm (Selected Default):**
+* **Hungarian Algorithm (Selected Default):**
     - Speed: O(N^3) 
     - It finds the optimal way to assign N resources (e.g., drivers) to N tasks (e.g., shipments) such that the total cost is minimized or the total profit is maximized.
     - It guarantees finding the global optimum, unlike a Greedy algorithm which only finds a local optimum.
