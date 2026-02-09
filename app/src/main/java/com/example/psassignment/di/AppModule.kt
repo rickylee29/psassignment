@@ -27,8 +27,8 @@ object AppModule {
     @Provides
     @Singleton
     fun provideRoutingAlgorithm(): RoutingAlgorithm {
-        return GreedyAlgorithm()            // The fast/approx answer
-//        return HungarianAlgorithm()       // More complicated, but the best answer
+//        return GreedyAlgorithm()            // The fast/approx answer
+        return HungarianAlgorithm()       // More complicated, but the best answer
     }
 
     @Provides

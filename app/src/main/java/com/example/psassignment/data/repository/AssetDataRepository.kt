@@ -21,16 +21,19 @@ class AssetDataRepository @Inject constructor(
 
     override suspend fun getData(): AppData = withContext(Dispatchers.IO) {
         try {
-            val inputStream = context.assets.open("data.json")
-            val reader = BufferedReader(InputStreamReader(inputStream))
-            val dto = gson.fromJson(reader, ShipmentResponseDto::class.java)
+            // used .use() to ensure the stream is closed after use
+            context.assets.open("data.json").use { inputStream ->
+                InputStreamReader(inputStream).use { reader ->
+                    val dto = gson.fromJson(reader, ShipmentResponseDto::class.java)
 
-            // Map DTOs to Domain Models
-            // Note: We use the raw string as the 'name'/'address'
-            val drivers = dto.drivers.map { Driver(name = it) }
-            val shipments = dto.shipments.map { Shipment(address = it) }
+                    // Map DTOs to Domain Models
+                    // Note: We use the raw string as the 'name'/'address'
+                    val drivers = dto.drivers.map { Driver(name = it) }
+                    val shipments = dto.shipments.map { Shipment(address = it) }
 
-            AppData(drivers, shipments)
+                    AppData(drivers, shipments)
+                }
+            }
         } catch (e: Exception) {
             e.printStackTrace()
             // Return empty data on failure, or rethrow if you want the UI to show an error

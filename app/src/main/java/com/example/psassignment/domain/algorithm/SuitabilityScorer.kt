@@ -34,7 +34,9 @@ class SuitabilityScorer @Inject constructor() {
     }
 
     /**
-     * Extracts the street name from an address string.
+     * Parses the street name from the full address line.
+     * Assumption: The first token is the street number (e.g., "9856"), which should
+     * be excluded from the character count logic to better reflect the "Street Name" length.
      */
     private fun parseStreetName(address: String): String {
         val parts = address.split(" ", limit = 2)

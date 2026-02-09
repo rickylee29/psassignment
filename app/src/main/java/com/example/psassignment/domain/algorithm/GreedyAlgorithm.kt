@@ -12,7 +12,8 @@ import javax.inject.Inject
  * pros
  * good enough solution
  * simpler to implement
- * faster than hungarian O(N^2): scan and sort
+ * faster O(N^2) than hungarian: scan and sort
+ * can be used in large data
  * cons
  * ** Not best solution ** because the total of other combination could be higher.
  *
@@ -21,6 +22,8 @@ import javax.inject.Inject
 class GreedyAlgorithm @Inject constructor(): RoutingAlgorithm {
 
     override fun computeAssignments(costMatrix: Array<DoubleArray>): IntArray {
+        println("Greedy Algorithm")
+
         val n = costMatrix.size
         val result = IntArray(n) { -1 }
 
@@ -35,11 +38,14 @@ class GreedyAlgorithm @Inject constructor(): RoutingAlgorithm {
             var bestShipmentIndex = -1
 
             // 1. Scan the whole matrix for the best remaining score
+            // It looks at every single remaining cell in the matrix.
+            // It doesn't care which driver gets the shipment.
+            // It only cares about finding the highest number currently left on the board.
             for (driver in 0 until n) {
-                if (driverIsAssigned[driver]) continue
+                if (driverIsAssigned[driver]) continue              // Skip busy drivers
 
                 for (shipment in 0 until n) {
-                    if (shipmentIsAssigned[shipment]) continue
+                    if (shipmentIsAssigned[shipment]) continue      // Skip taken shipments
 
                     val score = costMatrix[driver][shipment]
                     if (score > maxScore) {
@@ -51,6 +57,8 @@ class GreedyAlgorithm @Inject constructor(): RoutingAlgorithm {
             }
 
             // 2. Make the assignment if a valid pair was found
+            // Once the highest number is found, it permanently assigns that pair.
+            // They are removed from the boolean arrays, so they will be skipped in the next pass.
             if (bestDriverIndex != -1 && bestShipmentIndex != -1) {
                 result[bestDriverIndex] = bestShipmentIndex
                 driverIsAssigned[bestDriverIndex] = true
