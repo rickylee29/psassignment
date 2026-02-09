@@ -65,6 +65,25 @@ Two algorithms were implemented to compare results:
     * **Vowels:** defined as `[a, e, i, o, u]`.
     * **Consonants:** defined as any alphabetic character that is not a vowel.
     * **Case Sensitivity:** All comparisons are case-insensitive.
+   
+## Verification & Testing Strategy
+Given the complexity of the **Hungarian Algorithm ($O(N^3)$)**, I implemented a rigorous unit testing suite to ensure correctness, stability, and performance on mobile devices.
+
+### 1. Correctness Test (`3x3 Max Score`)
+  * **Goal:** Verify that the algorithm correctly **maximizes the total Suitability Score (SS)** rather than minimizing cost.
+  * **Method:** Input a 3x3 matrix with known optimal assignments.
+  * **Result:** The algorithm successfully identifies the assignment combination that yields the highest total score (e.g., matching a driver to their preferred shipment even if it requires swapping another driver).
+
+### 2. Edge Case Test (`Equal Scores`)
+  * **Goal:** Ensure stability when the dataset is uniform (e.g., all drivers have the exact same score for all shipments).
+  * **Method:** Input a 5x5 matrix where every value is `10.0`.
+  * **Result:** The algorithm successfully returns 5 unique, non-conflicting assignments without hanging or crashing.
+
+### 3. Performance Benchmark (`N=100`)
+  * **Goal:** Validate that the algorithm is safe to run on a mobile device without freezing the UI.
+  * **Method:** Generate a random $100 \times 100$ matrix and measure execution time.
+  * **Threshold:** The test fails if execution exceeds **200ms** (approximate frame drop threshold).
+  * **Result:** Typical execution time is **< 30ms**, confirming it is safe for datasets up to $N=100$ on the client side.
 
 ## Project Structure
   app/
